@@ -1,7 +1,7 @@
 import { TrainerOnboardingModal } from "@/features/trainer-onboarding";
 import { Layout } from "@/shared/components/navigation/layout";
 
-function SettingsPage() {
+function OnboardingPage() {
   return (
     <Layout>
       <TrainerOnboardingModal />
@@ -9,4 +9,4 @@ function SettingsPage() {
   );
 }
 
-export const Component = SettingsPage;
+export const Component = OnboardingPage;

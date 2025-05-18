@@ -18,7 +18,7 @@ const common: Partial<Options["output"]> = {
 
 export default defineConfig({
   auth: {
-    input: "../Contracts/auth.yaml",
+    input: "../contracts/auth.yaml",
     output: {
       target: "./src/shared/api/auth/index.ts",
       schemas: "./src/shared/api/auth/types",

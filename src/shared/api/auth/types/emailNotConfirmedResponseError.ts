@@ -8,7 +8,6 @@
 export type EmailNotConfirmedResponseError =
   (typeof EmailNotConfirmedResponseError)[keyof typeof EmailNotConfirmedResponseError];
 
- 
 export const EmailNotConfirmedResponseError = {
   EMAIL_NOT_CONFIRMED: "EMAIL_NOT_CONFIRMED",
 } as const;

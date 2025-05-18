@@ -10,8 +10,6 @@ import { ROUTES } from "@/kernel/routes";
 import { useLoginUser } from "@/shared/api/auth";
 import { getApiError } from "@/shared/api/errors";
 
-
-
 export const useLogin = () => {
   const navigate = useNavigate();
   const form = useForm({
@@ -36,6 +34,11 @@ export const useLogin = () => {
       onSuccess: (data) => {
         localStorage.setItem("token", data.accessToken);
         toast.success("Login successful");
+        if (data.isFirstLogin) {
+          navigate(ROUTES.onboarding);
+          return;
+        }
+        navigate(ROUTES.home);
       },
       onError: (err, variables) => {
         const error = getApiError(err);

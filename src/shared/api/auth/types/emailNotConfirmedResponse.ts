@@ -4,9 +4,7 @@
  * Authentication API
  * OpenAPI spec version: 1.0.0
  */
-import type { EmailNotConfirmedResponseError } from "./emailNotConfirmedResponseError";
 
 export type EmailNotConfirmedResponse = {
   message?: string;
-  error?: EmailNotConfirmedResponseError;
 };

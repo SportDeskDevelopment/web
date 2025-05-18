@@ -12,10 +12,6 @@ import type {
   UseMutationResult,
 } from "@tanstack/react-query";
 
-
-import { apiInstance } from "../instance";
-import type { BodyType } from "../instance";
-
 import type {
   AuthResponseResponse,
   ConfirmEmailRequest,
@@ -34,6 +30,9 @@ import type {
   RegisterResponseResponse,
   UserNotFoundResponse,
 } from "./types";
+
+import { apiInstance } from "../instance";
+import type { BodyType } from "../instance";
 export const registerUser = (
   registerRequest: BodyType<RegisterRequest>,
   signal?: AbortSignal,

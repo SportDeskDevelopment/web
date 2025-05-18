@@ -16,6 +16,10 @@ export const router = createBrowserRouter([
         path: ROUTES.settings,
         lazy: () => import("@/pages/settings/page"),
       },
+      {
+        path: ROUTES.onboarding,
+        lazy: () => import("@/pages/onboarding/page"),
+      },
     ],
   },
   {
