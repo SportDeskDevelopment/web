@@ -20,9 +20,6 @@ import type {
   UseQueryResult,
 } from "@tanstack/react-query";
 
-import { apiInstance } from "../instance";
-import type { BodyType } from "../instance";
-
 import type {
   InitializeRoleRequest,
   InitializeRoleResponse,
@@ -36,6 +33,9 @@ import type {
   UpdateUserRole200,
   UserResponse,
 } from "./types";
+
+import { apiInstance } from "../instance";
+import type { BodyType } from "../instance";
 export const getCurrentUser = (signal?: AbortSignal) => {
   return apiInstance<UserResponse>({
     url: `/api/users/me`,

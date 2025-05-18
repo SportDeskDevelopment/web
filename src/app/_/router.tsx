@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import { PrivateLoader } from "@/app/_/private-loader";
 import { ROUTES } from "@/kernel/routes";
+import { prefetchOnboarding } from "@/pages/onboarding";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path: ROUTES.onboarding,
+        loader: prefetchOnboarding,
         lazy: () => import("@/pages/onboarding/page"),
       },
     ],

@@ -23,3 +23,4 @@ export * from "./userResponse";
 export * from "./userResponseActiveRole";
 export * from "./userResponsePreferredLang";
 export * from "./userResponseRolesItem";
+export * from "./userResponseTrainerOnboardingLeftItem";
