@@ -10,6 +10,7 @@ import { otpSchema, registerSchema } from "./schema";
 import { toast } from "sonner";
 import { z } from "zod";
 import { useNavigate } from "react-router";
+import { ROUTES } from "@/kernel/routes";
 
 export const useRegister = () => {
   const [step, setStep] = useState<"register" | "otp">("register");
@@ -59,7 +60,7 @@ export const useRegister = () => {
       onSuccess: (data) => {
         toast.success("User confirmed");
         localStorage.setItem("token", data.accessToken);
-        navigate("/");
+        navigate(ROUTES.home);
       },
     },
   });

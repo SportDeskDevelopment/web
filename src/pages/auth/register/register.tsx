@@ -24,7 +24,7 @@ import {
   InputOTPSlot,
 } from "@/shared/ui/input-otp";
 
-import { useRegister } from "./useRegister";
+import { useRegister } from "./use-register";
 import { cn } from "@/shared/lib/utils";
 
 export const RegisterPage = () => {

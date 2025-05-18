@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { getApiError } from "@/shared/api/errors";
 import { useNavigate } from "react-router";
+import { ROUTES } from "@/kernel/routes";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -36,8 +37,8 @@ export const useLogin = () => {
         const error = getApiError(err);
 
         if (error.status === 403) {
-          toast.error("Email not confirmed");
-          navigate("/otp", {
+          toast.error("Email not confirmed. Please check your email.");
+          navigate(ROUTES.otp, {
             state: { email: variables.data.email },
           });
           return;
