@@ -1,5 +1,6 @@
-import { Separator } from "@/shared/ui/separator";
 import { Check, Circle, X } from "lucide-react";
+
+import { Separator } from "@/shared/ui/separator";
 
 type TrainingCardProps = {
   title: string;

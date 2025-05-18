@@ -1,16 +1,17 @@
-import { useConfirmEmail } from "@/shared/api/auth";
 
-import { useRegisterUser } from "@/shared/api/auth";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-
 import { useForm } from "react-hook-form";
-import { otpSchema, registerSchema } from "./schema";
+import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import { z } from "zod";
-import { useNavigate } from "react-router";
+
+import { otpSchema, registerSchema } from "./schema";
+
 import { ROUTES } from "@/kernel/routes";
+import { useRegisterUser } from "@/shared/api/auth";
+import { useConfirmEmail } from "@/shared/api/auth";
 
 export const useRegister = () => {
   const [step, setStep] = useState<"register" | "otp">("register");

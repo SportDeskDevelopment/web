@@ -1,5 +1,6 @@
-import { router } from "@/app/router";
 import { RouterProvider } from "react-router";
+
+import { router } from "@/app/router";
 
 export function App() {
   return (

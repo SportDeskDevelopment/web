@@ -1,8 +1,7 @@
-import { LoginPage } from "@/pages/auth/login/login";
-import { HomePage } from "@/pages/home/page";
-import { RegisterPage } from "@/pages/auth/register/register";
 import { createBrowserRouter } from "react-router";
+
 import { ROUTES } from "@/kernel/routes";
+import { HomePage } from "@/pages/home/page";
 
 export const router = createBrowserRouter([
   {
@@ -11,10 +10,10 @@ export const router = createBrowserRouter([
   },
   {
     path: ROUTES.login,
-    element: <LoginPage />,
+    lazy: () => import("@/pages/auth/login/login.page"),
   },
   {
     path: ROUTES.signup,
-    element: <RegisterPage />,
+    lazy: () => import("@/pages/auth/register/register.page"),
   },
 ]);

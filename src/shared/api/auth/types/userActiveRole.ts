@@ -8,7 +8,7 @@
 export type UserActiveRole =
   (typeof UserActiveRole)[keyof typeof UserActiveRole];
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 export const UserActiveRole = {
   TRAINER: "TRAINER",
   TRAINEE: "TRAINEE",

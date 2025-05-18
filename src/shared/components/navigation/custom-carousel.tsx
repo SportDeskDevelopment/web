@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { toast } from "sonner";
+
 import { cn } from "@/shared/lib/utils";
 import {
   Carousel,
@@ -6,8 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/shared/ui/carousel";
-import { useState } from "react";
-import { toast } from "sonner";
 const roles = ["Trainer", "Parent", "Child"];
 
 export function CustomCarousel() {

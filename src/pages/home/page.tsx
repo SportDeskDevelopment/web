@@ -1,6 +1,5 @@
 import { CustomCarousel } from "@/shared/components/navigation/custom-carousel";
 import { Layout } from "@/shared/components/navigation/layout";
-
 import { TrainingCard } from "@/shared/components/navigation/training-card";
 
 const data = [

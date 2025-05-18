@@ -8,7 +8,7 @@
 export type EmailNotConfirmedResponseError =
   (typeof EmailNotConfirmedResponseError)[keyof typeof EmailNotConfirmedResponseError];
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+ 
 export const EmailNotConfirmedResponseError = {
   EMAIL_NOT_CONFIRMED: "EMAIL_NOT_CONFIRMED",
 } as const;

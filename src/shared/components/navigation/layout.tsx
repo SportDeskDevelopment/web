@@ -1,8 +1,10 @@
-import { cn } from "@/lib/utils";
-import { Toaster } from "@/shared/ui/sonner";
 import type { ReactNode } from "react";
+
 import { FooterNav } from "./footer-navigation";
 import { Header } from "./header";
+
+import { cn } from "@/lib/utils";
+import { Toaster } from "@/shared/ui/sonner";
 
 interface LayoutProps {
   children: ReactNode;

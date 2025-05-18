@@ -1,3 +1,8 @@
+import { useRegister } from "./use-register";
+
+import { Layout } from "@/shared/components/navigation/layout";
+import { cn } from "@/shared/lib/utils";
+import { Button } from "@/shared/ui/button";
 import {
   Card,
   CardContent,
@@ -5,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/ui/card";
-import { Button } from "@/shared/ui/button";
 import {
   Form,
   FormControl,
@@ -16,7 +20,6 @@ import {
   FormMessage,
 } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
-import { Layout } from "@/shared/components/navigation/layout";
 import {
   InputOTP,
   InputOTPGroup,
@@ -24,10 +27,9 @@ import {
   InputOTPSlot,
 } from "@/shared/ui/input-otp";
 
-import { useRegister } from "./use-register";
-import { cn } from "@/shared/lib/utils";
 
-export const RegisterPage = () => {
+
+const RegisterPage = () => {
   const { registerForm, otpForm, handleRegister, handleConfirmEmail, step } =
     useRegister();
 
@@ -201,3 +203,5 @@ export const RegisterPage = () => {
     </Layout>
   );
 };
+
+export const Component = RegisterPage;

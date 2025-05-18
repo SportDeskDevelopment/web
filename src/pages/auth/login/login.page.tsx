@@ -1,3 +1,7 @@
+import { Link } from "react-router";
+
+import { useLogin } from "./use-login-user";
+
 import { Layout } from "@/shared/components/navigation/layout";
 import { Button } from "@/shared/ui/button";
 import {
@@ -18,10 +22,8 @@ import {
 import { FormField } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
 import { Separator } from "@/shared/ui/separator";
-import { Link } from "react-router";
-import { useLogin } from "./use-login-user";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const { form, onSubmit } = useLogin();
 
   return (
@@ -98,3 +100,5 @@ export const LoginPage = () => {
     </Layout>
   );
 };
+
+export const Component = LoginPage;
