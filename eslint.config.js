@@ -43,6 +43,7 @@ export default tseslint.config(
         },
       ],
       "import/no-cycle": "error",
+      "react-refresh/only-export-components": "off",
     },
   },
 );

@@ -1,3 +1,4 @@
+import { TrainerOnboardingModal } from "@/features/trainer-onboarding/modal";
 import { CustomCarousel } from "@/shared/components/navigation/custom-carousel";
 import { Layout } from "@/shared/components/navigation/layout";
 import { TrainingCard } from "@/shared/components/navigation/training-card";
@@ -58,6 +59,7 @@ export function HomePage() {
             status={item.status as "pending" | "completed" | "cancelled"}
           />
         ))}
+        <TrainerOnboardingModal />
       </div>
     </Layout>
   );

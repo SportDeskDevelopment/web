@@ -1,0 +1,1 @@
+export { TrainerOnboardingModal } from "./modal";

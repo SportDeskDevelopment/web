@@ -16,13 +16,12 @@ export const Layout = ({ children, className, withoutFooter }: LayoutProps) => {
   return (
     <div
       className={cn(
-        "flex min-h-screen flex-col bg-secondary text-foreground dark:bg-background",
+        "bg-muted text-foreground dark:bg-background flex min-h-screen flex-col",
         className,
-        "dark",
       )}
     >
       <Header />
-      <main className="flex-1 container mx-auto p-4">{children}</main>
+      <main className="container mx-auto flex-1 p-4">{children}</main>
       {!withoutFooter && <FooterNav />}
       <Toaster position="bottom-right" />
     </div>
