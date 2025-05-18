@@ -7,7 +7,7 @@ import { z } from "zod";
 import { formSchema } from "./schema";
 
 import { ROUTES } from "@/kernel/routes";
-import { useLoginUser } from "@/shared/api/auth";
+import { authApi } from "@/shared/api/auth";
 import { getApiError } from "@/shared/api/errors";
 
 export const useLogin = () => {
@@ -29,7 +29,7 @@ export const useLogin = () => {
     });
   };
 
-  const { mutate: loginUser } = useLoginUser({
+  const { mutate: loginUser } = authApi.useLoginUser({
     mutation: {
       onSuccess: (data) => {
         localStorage.setItem("token", data.accessToken);

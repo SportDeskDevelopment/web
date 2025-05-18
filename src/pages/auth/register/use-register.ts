@@ -1,5 +1,3 @@
-
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -10,8 +8,7 @@ import { z } from "zod";
 import { otpSchema, registerSchema } from "./schema";
 
 import { ROUTES } from "@/kernel/routes";
-import { useRegisterUser } from "@/shared/api/auth";
-import { useConfirmEmail } from "@/shared/api/auth";
+import { authApi } from "@/shared/api/auth";
 
 export const useRegister = () => {
   const [step, setStep] = useState<"register" | "otp">("register");
@@ -36,7 +33,7 @@ export const useRegister = () => {
     },
   });
 
-  const { mutate: registerUser } = useRegisterUser({
+  const { mutate: registerUser } = authApi.useRegisterUser({
     mutation: {
       onSuccess: () => {
         toast.success("Confirmation code sent to your email");
@@ -56,7 +53,7 @@ export const useRegister = () => {
     });
   };
 
-  const { mutate: confirmEmail } = useConfirmEmail({
+  const { mutate: confirmEmail } = authApi.useConfirmEmail({
     mutation: {
       onSuccess: (data) => {
         toast.success("User confirmed");

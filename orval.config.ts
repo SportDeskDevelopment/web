@@ -20,8 +20,16 @@ export default defineConfig({
   auth: {
     input: "../contracts/auth.yaml",
     output: {
-      target: "./src/shared/api/auth/index.ts",
+      target: "./src/shared/api/auth/api.ts",
       schemas: "./src/shared/api/auth/types",
+      ...common,
+    },
+  },
+  user: {
+    input: "../contracts/user.yaml",
+    output: {
+      target: "./src/shared/api/user/api.ts",
+      schemas: "./src/shared/api/user/types",
       ...common,
     },
   },

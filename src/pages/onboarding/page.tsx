@@ -3,7 +3,7 @@ import { Layout } from "@/shared/components/navigation/layout";
 
 function OnboardingPage() {
   return (
-    <Layout>
+    <Layout withoutFooter>
       <TrainerOnboardingModal />
     </Layout>
   );
