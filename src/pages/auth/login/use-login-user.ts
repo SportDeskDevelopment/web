@@ -4,12 +4,11 @@ import { formSchema } from "./schema";
 import { useLoginUser } from "@/shared/api/auth";
 import { toast } from "sonner";
 import { z } from "zod";
+import { getApiError } from "@/shared/api/errors";
 import { useNavigate } from "react-router";
-import type { EmailNotConfirmedResponse } from "@/shared/api/auth/types/emailNotConfirmedResponse";
-import { isEmailNotConfirmedError } from "@/shared/api/errors";
 
 export const useLogin = () => {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,16 +32,18 @@ export const useLogin = () => {
         localStorage.setItem("token", data.accessToken);
         toast.success("Login successful");
       },
-      onError: (error, variables) => {
+      onError: (err, variables) => {
+        const error = getApiError(err);
 
-        if (isEmailNotConfirmedError(error)) {
+        if (error.status === 403) {
           toast.error("Email not confirmed");
-          //   navigate("/register", {
-          //     state: { email: variables.data.email },
-          //   });
-        } else {
-          toast.error(error.data.message);
+          navigate("/otp", {
+            state: { email: variables.data.email },
+          });
+          return;
         }
+
+        toast.error(error.message);
       },
     },
   });
