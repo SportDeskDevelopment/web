@@ -1,10 +1,65 @@
-import { Button } from "@/shared/ui/button";
+import { CustomCarousel } from "@/shared/components/navigation/custom-carousel";
+import { Layout } from "@/shared/components/navigation/layout";
+
+import { TrainingCard } from "@/shared/components/navigation/training-card";
+
+const data = [
+  {
+    title: "Training 1",
+    date: "2021-01-01",
+    gym: "Gym 1",
+    group: "Group 1",
+    status: "pending",
+  },
+  {
+    title: "Training 2",
+    date: "2021-01-01",
+    gym: "Gym 2",
+    group: "Group 2",
+    status: "completed",
+  },
+  {
+    title: "Training 3",
+    date: "2021-01-01",
+    gym: "Gym 3",
+    group: "Group 3",
+    status: "cancelled",
+  },
+  {
+    title: "Training 4",
+    date: "2021-01-01",
+    gym: "Gym 4",
+    group: "Group 4",
+    status: "pending",
+  },
+  {
+    title: "Training 5",
+    date: "2021-01-01",
+    gym: "Gym 5",
+    group: "Group 5",
+    status: "pending",
+  },
+];
 
 export function HomePage() {
   return (
-    <div>
-      <h1>Home</h1>
-      <Button>Click me</Button>
-    </div>
+    <Layout>
+      <div className="flex flex-row justify-between">
+        <h1 className="text-2xl font-bold">Trainings</h1>
+        <CustomCarousel />
+      </div>
+      <div className="flex flex-col gap-4 justify-center p-4 mb-4">
+        {data.map((item) => (
+          <TrainingCard
+            key={item.title}
+            title={item.title}
+            date={item.date}
+            gym={item.gym}
+            group={item.group}
+            status={item.status as "pending" | "completed" | "cancelled"}
+          />
+        ))}
+      </div>
+    </Layout>
   );
 }
