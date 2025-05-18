@@ -41,14 +41,14 @@ const data = [
   },
 ];
 
-export function HomePage() {
+function HomePage() {
   return (
     <Layout>
       <div className="flex flex-row justify-between">
         <h1 className="text-2xl font-bold">Trainings</h1>
         <CustomCarousel />
       </div>
-      <div className="flex flex-col gap-4 justify-center p-4 mb-4">
+      <div className="mb-4 flex flex-col justify-center gap-4 p-4">
         {data.map((item) => (
           <TrainingCard
             key={item.title}
@@ -64,3 +64,5 @@ export function HomePage() {
     </Layout>
   );
 }
+
+export const Component = HomePage;

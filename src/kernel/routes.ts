@@ -4,6 +4,7 @@ export const ROUTES = {
   signup: "/signup",
   otp: "/otp",
   test: "/test/:id",
+  settings: "/settings",
 } as const;
 
 export type PathParams = {

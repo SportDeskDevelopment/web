@@ -1,28 +1,31 @@
 import { Home, QrCode, Settings, User } from "lucide-react";
+import { NavLink } from "react-router";
+
+import { ROUTES } from "@/kernel/routes";
 
 export const FooterNav = () => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-primary border-t border-border shadow-md">
-      <div className="relative flex justify-around items-center h-16">
+    <nav className="bg-primary border-border fixed right-0 bottom-0 left-0 z-50 border-t shadow-md">
+      <div className="relative flex h-16 items-center justify-around">
         <FooterNavItem
           href="/"
-          icon={<Home className="w-5 h-5" />}
+          icon={<Home className="h-5 w-5" />}
           label="Home"
         />
         <FooterNavItem
           href="/"
-          icon={<User className="w-5 h-5" />}
+          icon={<User className="h-5 w-5" />}
           label="Profile"
         />
-        <FooterScanQr href="/" icon={<QrCode className="w-5 h-5" />} label="" />
+        <FooterScanQr href="/" icon={<QrCode className="h-5 w-5" />} label="" />
         <FooterNavItem
           href="/"
-          icon={<Settings className="w-5 h-5" />}
+          icon={<Settings className="h-5 w-5" />}
           label="Settings"
         />
         <FooterNavItem
-          href="/"
-          icon={<Settings className="w-5 h-5" />}
+          href={ROUTES.settings}
+          icon={<Settings className="h-5 w-5" />}
           label="Settings"
         />
       </div>
@@ -40,18 +43,17 @@ const FooterNavItem = ({
   label: string;
 }) => {
   return (
-    <a
-      href={href}
-      className="flex flex-col items-center text-muted-foreground hover:text-secondary transition-colors"
+    <NavLink
+      to={href}
+      className="text-muted-foreground hover:text-secondary flex flex-col items-center transition-colors"
     >
       {icon}
       <span className="text-xs">{label}</span>
-    </a>
+    </NavLink>
   );
 };
 
 const FooterScanQr = ({
-  href,
   icon,
 }: {
   href: string;
@@ -59,11 +61,11 @@ const FooterScanQr = ({
   label: string;
 }) => {
   return (
-    <a
-      href={href}
-      className="absolute -top-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center bg-orange-700 text-white rounded-full p-4 shadow-lg hover:text-secondary transition-colors"
+    <button
+      // to={href}
+      className="hover:text-secondary absolute -top-6 left-1/2 flex -translate-x-1/2 transform flex-col items-center justify-center rounded-full bg-orange-700 p-4 text-white shadow-lg transition-colors"
     >
       {icon}
-    </a>
+    </button>
   );
 };
