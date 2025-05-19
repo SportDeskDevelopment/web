@@ -6,5 +6,6 @@
     "trainer": "I am here to train others (Trainer)",
     "trainee": "I am here to train myself (Trainee)",
     "parent": "I am here to support my children (Parent)"
-  }
+  },
+  "continue": "Continue"
 }

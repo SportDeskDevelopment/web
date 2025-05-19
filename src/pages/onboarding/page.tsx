@@ -56,7 +56,9 @@ function OnboardingPage() {
 
       {/* keep on the bottom of the page */}
       <div className="animate-fade-in-scale fixed right-0 bottom-10 left-0 px-4 [animation-duration:1.8s]">
-        <Button className="w-full">Continue</Button>
+        <Button className="w-full" disabled={!selectedRole}>
+          Continue
+        </Button>
       </div>
     </Layout>
   );
