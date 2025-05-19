@@ -1,7 +1,10 @@
 {
-  "title": "Select your role:",
+  "title": "Hi, mate!👋",
+  "subtitle": "Let's get you onboarded.",
+  "selectRole": "Select who you are. Don't worry, you can change this later in settings.",
   "options": {
-    "optionOne": "Option One",
-    "optionTwo": "Option Two"
+    "trainer": "I am here to train others (Trainer)",
+    "trainee": "I am here to train myself (Trainee)",
+    "parent": "I am here to support my children (Parent)"
   }
 }

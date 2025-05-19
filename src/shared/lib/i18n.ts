@@ -23,7 +23,6 @@ i18n
     fallbackLng: "en",
     debug: import.meta.env.DEV,
     defaultNS: "common",
-    ns: ["common"],
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default

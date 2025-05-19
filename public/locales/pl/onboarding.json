@@ -1,7 +1,10 @@
 {
-  "title": "Wybierz swoją rolę:",
+  "title": "Cześć!👋",
+  "subtitle": "Pomóżmy Ci zacząć.",
+  "selectRole": "Wybierz kim jesteś. Nie martw się, możesz to zmienić później w ustawieniach.",
   "options": {
-    "optionOne": "Opcja Pierwsza",
-    "optionTwo": "Opcja Druga"
+    "trainer": "Jestem tutaj, aby szkolić innych (Trener)",
+    "trainee": "Jestem tutaj, aby się szkolić (Uczeń)",
+    "parent": "Jestem tutaj, aby wspierać swoje dzieci (Rodzic)"
   }
 }
