@@ -16,7 +16,7 @@ export const Layout = ({ children, className, withoutFooter }: LayoutProps) => {
   return (
     <div
       className={cn(
-        "bg-muted text-foreground dark:bg-background flex min-h-screen flex-col",
+        "bg-background text-foreground flex min-h-screen flex-col",
         className,
       )}
     >

@@ -5,7 +5,7 @@ import { ROUTES } from "@/kernel/routes";
 
 export const FooterNav = () => {
   return (
-    <nav className="bg-primary border-border fixed right-0 bottom-0 left-0 z-50 border-t shadow-md">
+    <nav className="bg-background border-border fixed right-0 bottom-0 left-0 z-50 border-t shadow-md">
       <div className="relative flex h-16 items-center justify-around">
         <FooterNavItem
           href="/"
