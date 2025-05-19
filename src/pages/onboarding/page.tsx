@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { rolesOptions } from "./model/constants";
 
 import { RoleType } from "@/kernel/user";
+import { userApi } from "@/shared/api/user";
 import { Layout } from "@/shared/components/navigation/layout";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/button";
@@ -15,6 +16,20 @@ function OnboardingPage() {
   const { t } = useTranslation("onboarding");
 
   const [selectedRole, setSelectedRole] = useState<RoleType>();
+
+  const initiRole = userApi.useInitializeUserRole({
+    mutation: {
+      onSuccess() {},
+    },
+  });
+
+  const handleContinue = () => {
+    if (!selectedRole || selectedRole === RoleType.SUPERADMIN) return;
+
+    initiRole.mutate({
+      data: { role: selectedRole },
+    });
+  };
 
   return (
     <Layout withoutFooter>
@@ -54,10 +69,13 @@ function OnboardingPage() {
         </RadioGroup>
       </div>
 
-      {/* keep on the bottom of the page */}
       <div className="animate-fade-in-scale fixed right-0 bottom-10 left-0 px-4 [animation-duration:1.8s]">
-        <Button className="w-full" disabled={!selectedRole}>
-          Continue
+        <Button
+          className="w-full"
+          disabled={!selectedRole}
+          onClick={handleContinue}
+        >
+          {t("continue")}
         </Button>
       </div>
     </Layout>
