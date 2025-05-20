@@ -27,7 +27,7 @@ export const useLogin = () => {
         appSessionStore.setSessionToken(data.accessToken);
         toast.success("Login successful");
         if (data.isFirstLogin) {
-          navigate(ROUTES.onboarding);
+          navigate(ROUTES.trainerOnboarding);
           return;
         }
         navigate(ROUTES.home);

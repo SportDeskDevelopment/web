@@ -7,7 +7,9 @@
 import type { UserResponsePreferredLang } from "./userResponsePreferredLang";
 import type { UserResponseActiveRole } from "./userResponseActiveRole";
 import type { UserResponseRolesItem } from "./userResponseRolesItem";
-import type { UserResponseTrainerOnboardingLeftItem } from "./userResponseTrainerOnboardingLeftItem";
+import type { TrainerProfile } from "./trainerProfile";
+import type { TraineeProfile } from "./traineeProfile";
+import type { ParentProfile } from "./parentProfile";
 
 export interface UserResponse {
   id: string;
@@ -16,5 +18,10 @@ export interface UserResponse {
   preferredLang: UserResponsePreferredLang;
   activeRole: UserResponseActiveRole;
   roles: UserResponseRolesItem[];
-  trainerOnboardingLeft?: UserResponseTrainerOnboardingLeftItem[];
+  trainerStepsLeft: string[];
+  traineeStepsLeft: string[];
+  parentStepsLeft: string[];
+  trainerProfile: TrainerProfile;
+  traineeProfile: TraineeProfile;
+  parentProfile: ParentProfile;
 }

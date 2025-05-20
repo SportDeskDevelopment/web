@@ -19,6 +19,7 @@ const common: Partial<Options["output"]> = {
     query: {
       useQuery: true,
       useMutation: true,
+      useSuspenseQuery: true,
     },
   },
 };

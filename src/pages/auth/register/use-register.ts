@@ -59,7 +59,7 @@ export const useRegister = () => {
       onSuccess: (data) => {
         toast.success("User confirmed");
         appSessionStore.setSessionToken(data.accessToken);
-        navigate(ROUTES.home);
+        navigate(ROUTES.initiateRole);
       },
     },
   });

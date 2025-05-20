@@ -12,8 +12,6 @@ import type {
   UseMutationResult,
 } from "@tanstack/react-query";
 
-import { publicApiInstance } from "../public-instance";
-
 import type {
   AuthResponseResponse,
   ConfirmEmailRequest,
@@ -33,6 +31,7 @@ import type {
   UserNotFoundResponse,
 } from "./types";
 
+import { publicApiInstance } from "../public-instance";
 export const registerUser = (
   registerRequest: RegisterRequest,
   signal?: AbortSignal,

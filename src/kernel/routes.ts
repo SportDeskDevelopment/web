@@ -5,7 +5,8 @@ export const ROUTES = {
   otp: "/otp",
   test: "/test/:id",
   settings: "/settings",
-  onboarding: "/onboarding",
+  initiateRole: "/initiate-role",
+  trainerOnboarding: "/onboarding",
 } as const;
 
 export type PathParams = {

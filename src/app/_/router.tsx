@@ -1,8 +1,10 @@
 import { createBrowserRouter, Outlet } from "react-router";
-import { ROUTES } from "@/kernel/routes";
-import { prefetchOnboarding } from "@/pages/onboarding";
-import { appSessionStore } from "@/kernel/session";
+
 import { authGuard } from "./private-loader";
+
+import { ROUTES } from "@/kernel/routes";
+import { appSessionStore } from "@/kernel/session";
+import { prefetchOnboarding } from "@/pages/initiate-role";
 
 export const router = createBrowserRouter([
   {
@@ -19,9 +21,13 @@ export const router = createBrowserRouter([
         lazy: () => import("@/pages/settings/page"),
       },
       {
-        path: ROUTES.onboarding,
+        path: ROUTES.initiateRole,
         loader: prefetchOnboarding,
-        lazy: () => import("@/pages/onboarding/page"),
+        lazy: () => import("@/pages/initiate-role/page"),
+      },
+      {
+        path: ROUTES.trainerOnboarding,
+        lazy: () => import("@/pages/trainer-onboarding/page"),
       },
     ],
   },
@@ -34,7 +40,6 @@ export const router = createBrowserRouter([
     lazy: () => import("@/pages/auth/register/register.page"),
   },
 ]);
-
 
 appSessionStore.updateSessionSteam.listen((event) => {
   console.log(event);

@@ -26,3 +26,4 @@ export * from "./registerResponseResponse";
 export * from "./user";
 export * from "./userActiveRole";
 export * from "./userNotFoundResponse";
+export * from "./emailNotConfirmedResponseError";
