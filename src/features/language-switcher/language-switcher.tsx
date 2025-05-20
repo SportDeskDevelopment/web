@@ -8,7 +8,6 @@ import { useMediaQuery } from "@/shared/lib/media-query";
 
 export function LanguageSwitcher() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  console.log("===isDesktop===", isDesktop);
 
   const { i18n } = useTranslation("common");
 
