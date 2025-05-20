@@ -74,6 +74,7 @@ function OnboardingPage() {
           className="w-full"
           disabled={!selectedRole}
           onClick={handleContinue}
+          isLoading={initiRole.isPending}
         >
           {t("continue")}
         </Button>
