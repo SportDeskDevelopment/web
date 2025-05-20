@@ -1,13 +1,14 @@
-import { createBrowserRouter } from "react-router";
-
-import { PrivateLoader } from "@/app/_/private-loader";
+import { createBrowserRouter, Outlet } from "react-router";
 import { ROUTES } from "@/kernel/routes";
 import { prefetchOnboarding } from "@/pages/onboarding";
+import { appSessionStore } from "@/kernel/session";
+import { authGuard } from "./private-loader";
 
 export const router = createBrowserRouter([
   {
     path: ROUTES.home,
-    element: <PrivateLoader />,
+    element: <Outlet />,
+    loader: authGuard,
     children: [
       {
         path: ROUTES.home,
@@ -33,3 +34,11 @@ export const router = createBrowserRouter([
     lazy: () => import("@/pages/auth/register/register.page"),
   },
 ]);
+
+
+appSessionStore.updateSessionSteam.listen((event) => {
+  console.log(event);
+  if (event.type === "remove") {
+    router.navigate("/login");
+  }
+});

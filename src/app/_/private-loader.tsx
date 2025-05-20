@@ -1,14 +1,10 @@
-import { Outlet } from "react-router";
+import { ROUTES } from "@/kernel/routes";
+import { appSessionStore } from "@/kernel/session";
+import { redirect } from "react-router";
 
-export const PrivateLoader = () => {
-  //   const { isAuthenticated } = useAuth();
-  //   if (!isAuthenticated) {
-  //     return <Navigate to={ROUTES.login} />;
-  //   }
-
-  return (
-    <>
-      <Outlet />
-    </>
-  );
+export const authGuard = () => {
+    if (!appSessionStore.getSessionToken()) {
+      return redirect(ROUTES.login);
+    }
+    return null;
 };

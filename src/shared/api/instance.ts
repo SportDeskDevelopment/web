@@ -1,3 +1,6 @@
+import { appSessionStore } from "@/kernel/session";
+import { createApi } from "../lib/create-api";
+
 const baseURL = "http://localhost:5001";
 
 export type ApiRequest = {
@@ -14,66 +17,90 @@ export type ApiRequest = {
   responseType?: string;
 };
 
+let refreshPromise: Promise<string | null> | null = null;
+
+const getRefreshToken = () => {
+  refreshPromise =
+    refreshPromise ??
+    apiInstance<{ token: string }>({
+      url: "/refresh",
+      method: "POST",
+    })
+      .then((result) => {
+        appSessionStore.setSessionToken(result.token);
+        return result.token;
+      })
+      .catch(() => {
+        appSessionStore.removeSession();
+        return null;
+      })
+      .finally(() => {
+        refreshPromise = null;
+      });
+
+  return refreshPromise;
+};
+
 export const apiInstance = async <T>({
   url,
   method,
-  params,
+  // params,
   data,
   headers,
   signal,
 }: ApiRequest): Promise<T> => {
-  if (process.env.NODE_ENV === "development") {
-    // const mockResult = await mock({
-    //   url,
-    //   method,
-    //   params,
-    //   data,
-    //   headers,
-    //   signal,
-    // });
-    // if (mockResult) {
-    //   return mockResult as T;
-    // }
-  }
+  debugger;
+  const client =  createApi({
+    baseUrl: baseURL,
+    requestMiddlewares: [
+      async (config) => {
+        let token = appSessionStore.getSessionToken();
+  
+        if (!token || appSessionStore.isSessionExpired()) {
+          token = await getRefreshToken();
+        }
+  
+        if (token) {
+          config.headers = {
+            ...config.headers,
+            Authorization: `Bearer ${token}`,
+          };
+        }
+        return config;
+      },
+    ],
+    responseMiddlewares: [
+      async (response, config) => {
+        console.log("response", response);
+        if (response.status === 401) {
+          const token = appSessionStore.getSessionToken();
+  
+          if (token) {
+            const newToken = await getRefreshToken();
+            if (newToken) {
+              config.headers = {
+                ...config.headers,
+                Authorization: `Bearer ${newToken}`,
+              };
+              // TODO поправить багу)
+              return fetch(`${config.url}`, config);
+            }
+          }
+          appSessionStore.removeSession();
+        }
+        return response;
+      },
+    ],
+  });
 
-  // if (typeof window === "undefined") {
-  //   const session = await auth();
-
-  //   if (session) {
-  //     headers = {
-  //       ...headers,
-  //       Session: `${encodeURI(JSON.stringify(session.user))}`,
-  //     };
-  //   }
-  // }
-
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    headers = {
-      ...headers,
-      Authorization: `Bearer ${token}`,
-    };
-  }
-
-  const response = await fetch(
-    `${baseURL}${url}?` + new URLSearchParams(params as Record<string, string>),
-    {
-      method,
-      headers,
-      signal,
-      ...(data ? { body: JSON.stringify(data) } : {}),
-    },
-  );
-
-  if (response.status !== 200 && response.status !== 201) {
-    return Promise.reject({
-      status: response.status,
-      data: await response.json(),
-    });
-  }
-
-  return response.json();
+  return client({
+    url,
+    method,
+    // params,
+    json: data,
+    headers,
+    signal,
+  });
 };
 
 export default apiInstance;
