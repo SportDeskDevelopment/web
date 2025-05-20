@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 
 import { rolesOptions } from "./model/constants";
 
 import { RoleType } from "@/kernel/user";
+import { getApiError } from "@/shared/api/errors";
 import { userApi } from "@/shared/api/user";
 import { Layout } from "@/shared/components/navigation/layout";
 import { cn } from "@/shared/lib/utils";
@@ -20,6 +22,9 @@ function OnboardingPage() {
   const initiRole = userApi.useInitializeUserRole({
     mutation: {
       onSuccess() {},
+      onError(error) {
+        toast.error(getApiError(error).message);
+      },
     },
   });
 

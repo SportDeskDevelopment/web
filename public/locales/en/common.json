@@ -1,5 +1,6 @@
 {
   "title": "Test",
   "changeLanguageMobile": "Scroll to change language",
-  "changeLanguageDesktop": "Change language"
+  "changeLanguageDesktop": "Change language",
+  "error": "Something went wrong. Please try again later."
 }

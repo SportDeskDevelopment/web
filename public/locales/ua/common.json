@@ -1,5 +1,6 @@
 {
   "title": "Тест на українській",
   "changeLanguageMobile": "Прокрутіть, щоб змінити мову",
-  "changeLanguageDesktop": "Змінити мову"
+  "changeLanguageDesktop": "Змінити мову",
+  "error": "Щось пішло не так. Будь ласка, спробуйте ще раз пізніше."
 }
