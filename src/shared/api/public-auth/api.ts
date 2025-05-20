@@ -31,13 +31,13 @@ import type {
   UserNotFoundResponse,
 } from "./types";
 
-import { privateApiInstance } from "../private-instance";
-import type { BodyType } from "../private-instance";
+import { publicApiInstance } from "../public-instance";
+import type { BodyType } from "../public-instance";
 export const registerUser = (
   registerRequest: BodyType<RegisterRequest>,
   signal?: AbortSignal,
 ) => {
-  return privateApiInstance<RegisterResponseResponse>({
+  return publicApiInstance<RegisterResponseResponse>({
     url: `/api/auth/register`,
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -119,7 +119,7 @@ export const confirmEmail = (
   confirmEmailRequest: BodyType<ConfirmEmailRequest>,
   signal?: AbortSignal,
 ) => {
-  return privateApiInstance<ConfirmEmailResponseResponse>({
+  return publicApiInstance<ConfirmEmailResponseResponse>({
     url: `/api/auth/confirm-email`,
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -202,7 +202,7 @@ export const loginUser = (
   loginRequest: BodyType<LoginRequest>,
   signal?: AbortSignal,
 ) => {
-  return privateApiInstance<AuthResponseResponse>({
+  return publicApiInstance<AuthResponseResponse>({
     url: `/api/auth/login`,
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -288,7 +288,7 @@ export const useLoginUser = <
 };
 
 export const refreshToken = (signal?: AbortSignal) => {
-  return privateApiInstance<AuthResponseResponse>({
+  return publicApiInstance<AuthResponseResponse>({
     url: `/api/auth/refresh`,
     method: "POST",
     signal,
@@ -364,7 +364,7 @@ export const googleAuth = (
   googleAuthRequest: BodyType<GoogleAuthRequest>,
   signal?: AbortSignal,
 ) => {
-  return privateApiInstance<AuthResponseResponse>({
+  return publicApiInstance<AuthResponseResponse>({
     url: `/api/auth/google`,
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -443,7 +443,7 @@ export const useGoogleAuth = <
 };
 
 export const logoutUser = (signal?: AbortSignal) => {
-  return privateApiInstance<LogoutUser200>({
+  return publicApiInstance<LogoutUser200>({
     url: `/api/auth/logout`,
     method: "POST",
     signal,
@@ -516,7 +516,7 @@ export const useLogoutUser = <
 };
 
 export const logoutAllDevices = (signal?: AbortSignal) => {
-  return privateApiInstance<LogoutAllDevices200>({
+  return publicApiInstance<LogoutAllDevices200>({
     url: `/api/auth/logout-all`,
     method: "POST",
     signal,

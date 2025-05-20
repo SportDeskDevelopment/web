@@ -34,10 +34,10 @@ import type {
   UserResponse,
 } from "./types";
 
-import { apiInstance } from "../instance";
-import type { BodyType } from "../instance";
+import { privateApiInstance } from "../private-instance";
+import type { BodyType } from "../private-instance";
 export const getCurrentUser = (signal?: AbortSignal) => {
-  return apiInstance<UserResponse>({
+  return privateApiInstance<UserResponse>({
     url: `/api/users/me`,
     method: "GET",
     signal,
@@ -158,7 +158,7 @@ export function useGetCurrentUser<
 }
 
 export const getUserOnboarding = (signal?: AbortSignal) => {
-  return apiInstance<OnboardingResponse>({
+  return privateApiInstance<OnboardingResponse>({
     url: `/api/users/me/onboarding`,
     method: "GET",
     signal,
@@ -301,7 +301,7 @@ export function useGetUserOnboarding<
 export const updateUserLanguage = (
   updateLanguageRequest: BodyType<UpdateLanguageRequest>,
 ) => {
-  return apiInstance<UpdateUserLanguage200>({
+  return privateApiInstance<UpdateUserLanguage200>({
     url: `/api/users/me/lang`,
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -381,7 +381,7 @@ export const useUpdateUserLanguage = <
 export const updateUserRole = (
   updateRoleRequest: BodyType<UpdateRoleRequest>,
 ) => {
-  return apiInstance<UpdateUserRole200>({
+  return privateApiInstance<UpdateUserRole200>({
     url: `/api/users/me/role`,
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -463,7 +463,7 @@ export const initializeUserRole = (
   initializeRoleRequest: BodyType<InitializeRoleRequest>,
   signal?: AbortSignal,
 ) => {
-  return apiInstance<InitializeRoleResponse>({
+  return privateApiInstance<InitializeRoleResponse>({
     url: `/api/users/me/role/init`,
     method: "POST",
     headers: { "Content-Type": "application/json" },

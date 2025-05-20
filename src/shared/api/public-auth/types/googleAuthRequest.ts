@@ -5,6 +5,7 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export type EmailNotConfirmedResponse = {
-  message?: string;
-};
+export interface GoogleAuthRequest {
+  /** Google ID token */
+  token: string;
+}

@@ -8,7 +8,8 @@ import { z } from "zod";
 import { otpSchema, registerSchema } from "./schema";
 
 import { ROUTES } from "@/kernel/routes";
-import { authApi } from "@/shared/api/auth";
+import { appSessionStore } from "@/kernel/session";
+import { publicAuthApi } from "@/shared/api/public-auth";
 
 export const useRegister = () => {
   const [step, setStep] = useState<"register" | "otp">("register");
@@ -33,7 +34,7 @@ export const useRegister = () => {
     },
   });
 
-  const { mutate: registerUser } = authApi.useRegisterUser({
+  const { mutate: registerUser } = publicAuthApi.useRegisterUser({
     mutation: {
       onSuccess: () => {
         toast.success("Confirmation code sent to your email");
@@ -53,11 +54,11 @@ export const useRegister = () => {
     });
   };
 
-  const { mutate: confirmEmail } = authApi.useConfirmEmail({
+  const { mutate: confirmEmail } = publicAuthApi.useConfirmEmail({
     mutation: {
       onSuccess: (data) => {
         toast.success("User confirmed");
-        localStorage.setItem("token", data.accessToken);
+        appSessionStore.setSessionToken(data.accessToken);
         navigate(ROUTES.home);
       },
     },

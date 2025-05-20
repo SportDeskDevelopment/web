@@ -7,8 +7,9 @@ import { z } from "zod";
 import { formSchema } from "./schema";
 
 import { ROUTES } from "@/kernel/routes";
-import { authApi } from "@/shared/api/auth";
+import { appSessionStore } from "@/kernel/session";
 import { getApiError } from "@/shared/api/errors";
+import { publicAuthApi } from "@/shared/api/public-auth";
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -20,20 +21,10 @@ export const useLogin = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log("12312321");
-    loginUser({
-      data: {
-        email: data.email,
-        password: data.password,
-      },
-    });
-  };
-
-  const { mutate: loginUser, isPending } = authApi.useLoginUser({
+  const { mutate: loginUser, isPending } = publicAuthApi.useLoginUser({
     mutation: {
-      onSuccess: (data) => {
-        localStorage.setItem("token", data.accessToken);
+      onSuccess(data) {
+        appSessionStore.setSessionToken(data.accessToken);
         toast.success("Login successful");
         if (data.isFirstLogin) {
           navigate(ROUTES.onboarding);
@@ -56,6 +47,15 @@ export const useLogin = () => {
       },
     },
   });
+
+  const onSubmit = (data: z.infer<typeof formSchema>) => {
+    loginUser({
+      data: {
+        email: data.email,
+        password: data.password,
+      },
+    });
+  };
 
   return { form, onSubmit, loginUser, isLoading: isPending };
 };

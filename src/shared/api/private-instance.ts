@@ -1,5 +1,7 @@
-import { appSessionStore } from "@/kernel/session";
 import { createApi } from "../lib/create-api";
+
+import { appSessionStore } from "@/kernel/session";
+import { publicApiInstance } from "@/shared/api/public-instance";
 
 const baseURL = "http://localhost:5001";
 
@@ -22,7 +24,7 @@ let refreshPromise: Promise<string | null> | null = null;
 const getRefreshToken = () => {
   refreshPromise =
     refreshPromise ??
-    apiInstance<{ token: string }>({
+    publicApiInstance<{ token: string }>({
       url: "/refresh",
       method: "POST",
     })
@@ -41,7 +43,7 @@ const getRefreshToken = () => {
   return refreshPromise;
 };
 
-export const apiInstance = async <T>({
+export const privateApiInstance = async <T>({
   url,
   method,
   // params,
@@ -49,17 +51,16 @@ export const apiInstance = async <T>({
   headers,
   signal,
 }: ApiRequest): Promise<T> => {
-  debugger;
-  const client =  createApi({
+  const client = createApi({
     baseUrl: baseURL,
     requestMiddlewares: [
       async (config) => {
         let token = appSessionStore.getSessionToken();
-  
+
         if (!token || appSessionStore.isSessionExpired()) {
           token = await getRefreshToken();
         }
-  
+
         if (token) {
           config.headers = {
             ...config.headers,
@@ -74,7 +75,7 @@ export const apiInstance = async <T>({
         console.log("response", response);
         if (response.status === 401) {
           const token = appSessionStore.getSessionToken();
-  
+
           if (token) {
             const newToken = await getRefreshToken();
             if (newToken) {
@@ -102,7 +103,5 @@ export const apiInstance = async <T>({
     signal,
   });
 };
-
-export default apiInstance;
 
 export type BodyType<BodyData> = BodyData;
