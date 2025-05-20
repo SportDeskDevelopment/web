@@ -12,6 +12,8 @@ import type {
   UseMutationResult,
 } from "@tanstack/react-query";
 
+import { publicApiInstance } from "../public-instance";
+
 import type {
   AuthResponseResponse,
   ConfirmEmailRequest,
@@ -31,10 +33,8 @@ import type {
   UserNotFoundResponse,
 } from "./types";
 
-import { publicApiInstance } from "../public-instance";
-import type { BodyType } from "../public-instance";
 export const registerUser = (
-  registerRequest: BodyType<RegisterRequest>,
+  registerRequest: RegisterRequest,
   signal?: AbortSignal,
 ) => {
   return publicApiInstance<RegisterResponseResponse>({
@@ -53,13 +53,13 @@ export const getRegisterUserMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof registerUser>>,
     TError,
-    { data: BodyType<RegisterRequest> },
+    { data: RegisterRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof registerUser>>,
   TError,
-  { data: BodyType<RegisterRequest> },
+  { data: RegisterRequest },
   TContext
 > => {
   const mutationKey = ["registerUser"];
@@ -73,7 +73,7 @@ export const getRegisterUserMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof registerUser>>,
-    { data: BodyType<RegisterRequest> }
+    { data: RegisterRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -86,7 +86,7 @@ export const getRegisterUserMutationOptions = <
 export type RegisterUserMutationResult = NonNullable<
   Awaited<ReturnType<typeof registerUser>>
 >;
-export type RegisterUserMutationBody = BodyType<RegisterRequest>;
+export type RegisterUserMutationBody = RegisterRequest;
 export type RegisterUserMutationError =
   | InvalidInputResponse
   | EmailExistsResponse;
@@ -99,7 +99,7 @@ export const useRegisterUser = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof registerUser>>,
       TError,
-      { data: BodyType<RegisterRequest> },
+      { data: RegisterRequest },
       TContext
     >;
   },
@@ -107,7 +107,7 @@ export const useRegisterUser = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof registerUser>>,
   TError,
-  { data: BodyType<RegisterRequest> },
+  { data: RegisterRequest },
   TContext
 > => {
   const mutationOptions = getRegisterUserMutationOptions(options);
@@ -116,7 +116,7 @@ export const useRegisterUser = <
 };
 
 export const confirmEmail = (
-  confirmEmailRequest: BodyType<ConfirmEmailRequest>,
+  confirmEmailRequest: ConfirmEmailRequest,
   signal?: AbortSignal,
 ) => {
   return publicApiInstance<ConfirmEmailResponseResponse>({
@@ -135,13 +135,13 @@ export const getConfirmEmailMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof confirmEmail>>,
     TError,
-    { data: BodyType<ConfirmEmailRequest> },
+    { data: ConfirmEmailRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof confirmEmail>>,
   TError,
-  { data: BodyType<ConfirmEmailRequest> },
+  { data: ConfirmEmailRequest },
   TContext
 > => {
   const mutationKey = ["confirmEmail"];
@@ -155,7 +155,7 @@ export const getConfirmEmailMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof confirmEmail>>,
-    { data: BodyType<ConfirmEmailRequest> }
+    { data: ConfirmEmailRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -168,7 +168,7 @@ export const getConfirmEmailMutationOptions = <
 export type ConfirmEmailMutationResult = NonNullable<
   Awaited<ReturnType<typeof confirmEmail>>
 >;
-export type ConfirmEmailMutationBody = BodyType<ConfirmEmailRequest>;
+export type ConfirmEmailMutationBody = ConfirmEmailRequest;
 export type ConfirmEmailMutationError =
   | InvalidInputResponse
   | UserNotFoundResponse
@@ -182,7 +182,7 @@ export const useConfirmEmail = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof confirmEmail>>,
       TError,
-      { data: BodyType<ConfirmEmailRequest> },
+      { data: ConfirmEmailRequest },
       TContext
     >;
   },
@@ -190,7 +190,7 @@ export const useConfirmEmail = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof confirmEmail>>,
   TError,
-  { data: BodyType<ConfirmEmailRequest> },
+  { data: ConfirmEmailRequest },
   TContext
 > => {
   const mutationOptions = getConfirmEmailMutationOptions(options);
@@ -198,10 +198,7 @@ export const useConfirmEmail = <
   return useMutation(mutationOptions, queryClient);
 };
 
-export const loginUser = (
-  loginRequest: BodyType<LoginRequest>,
-  signal?: AbortSignal,
-) => {
+export const loginUser = (loginRequest: LoginRequest, signal?: AbortSignal) => {
   return publicApiInstance<AuthResponseResponse>({
     url: `/api/auth/login`,
     method: "POST",
@@ -221,13 +218,13 @@ export const getLoginUserMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof loginUser>>,
     TError,
-    { data: BodyType<LoginRequest> },
+    { data: LoginRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof loginUser>>,
   TError,
-  { data: BodyType<LoginRequest> },
+  { data: LoginRequest },
   TContext
 > => {
   const mutationKey = ["loginUser"];
@@ -241,7 +238,7 @@ export const getLoginUserMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof loginUser>>,
-    { data: BodyType<LoginRequest> }
+    { data: LoginRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -254,7 +251,7 @@ export const getLoginUserMutationOptions = <
 export type LoginUserMutationResult = NonNullable<
   Awaited<ReturnType<typeof loginUser>>
 >;
-export type LoginUserMutationBody = BodyType<LoginRequest>;
+export type LoginUserMutationBody = LoginRequest;
 export type LoginUserMutationError =
   | InvalidInputResponse
   | InvalidCredentialsResponse
@@ -271,7 +268,7 @@ export const useLoginUser = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof loginUser>>,
       TError,
-      { data: BodyType<LoginRequest> },
+      { data: LoginRequest },
       TContext
     >;
   },
@@ -279,7 +276,7 @@ export const useLoginUser = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof loginUser>>,
   TError,
-  { data: BodyType<LoginRequest> },
+  { data: LoginRequest },
   TContext
 > => {
   const mutationOptions = getLoginUserMutationOptions(options);
@@ -361,7 +358,7 @@ export const useRefreshToken = <
 };
 
 export const googleAuth = (
-  googleAuthRequest: BodyType<GoogleAuthRequest>,
+  googleAuthRequest: GoogleAuthRequest,
   signal?: AbortSignal,
 ) => {
   return publicApiInstance<AuthResponseResponse>({
@@ -380,13 +377,13 @@ export const getGoogleAuthMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof googleAuth>>,
     TError,
-    { data: BodyType<GoogleAuthRequest> },
+    { data: GoogleAuthRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof googleAuth>>,
   TError,
-  { data: BodyType<GoogleAuthRequest> },
+  { data: GoogleAuthRequest },
   TContext
 > => {
   const mutationKey = ["googleAuth"];
@@ -400,7 +397,7 @@ export const getGoogleAuthMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof googleAuth>>,
-    { data: BodyType<GoogleAuthRequest> }
+    { data: GoogleAuthRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -413,7 +410,7 @@ export const getGoogleAuthMutationOptions = <
 export type GoogleAuthMutationResult = NonNullable<
   Awaited<ReturnType<typeof googleAuth>>
 >;
-export type GoogleAuthMutationBody = BodyType<GoogleAuthRequest>;
+export type GoogleAuthMutationBody = GoogleAuthRequest;
 export type GoogleAuthMutationError =
   | InvalidInputResponse
   | InvalidTokenResponse;
@@ -426,7 +423,7 @@ export const useGoogleAuth = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof googleAuth>>,
       TError,
-      { data: BodyType<GoogleAuthRequest> },
+      { data: GoogleAuthRequest },
       TContext
     >;
   },
@@ -434,7 +431,7 @@ export const useGoogleAuth = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof googleAuth>>,
   TError,
-  { data: BodyType<GoogleAuthRequest> },
+  { data: GoogleAuthRequest },
   TContext
 > => {
   const mutationOptions = getGoogleAuthMutationOptions(options);

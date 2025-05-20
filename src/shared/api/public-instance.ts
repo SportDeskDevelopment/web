@@ -1,20 +1,8 @@
 import { createApi } from "../lib/create-api";
 
-const baseURL = "http://localhost:5001";
+import type { ApiRequest } from "@/shared/api/types";
 
-export type ApiRequest = {
-  url: string;
-  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-  params?:
-    | string[][]
-    | Record<string, string | number>
-    | string
-    | URLSearchParams;
-  data?: BodyType<unknown>;
-  signal?: AbortSignal;
-  headers?: HeadersInit;
-  responseType?: string;
-};
+const baseURL = "http://localhost:5001";
 
 export const publicApiInstance = async <T>({
   url,
@@ -37,5 +25,3 @@ export const publicApiInstance = async <T>({
     signal,
   });
 };
-
-export type BodyType<BodyData> = BodyData;

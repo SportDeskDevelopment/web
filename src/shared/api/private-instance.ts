@@ -2,22 +2,9 @@ import { createApi } from "../lib/create-api";
 
 import { appSessionStore } from "@/kernel/session";
 import { publicApiInstance } from "@/shared/api/public-instance";
+import type { ApiRequest } from "@/shared/api/types";
 
 const baseURL = "http://localhost:5001";
-
-export type ApiRequest = {
-  url: string;
-  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-  params?:
-    | string[][]
-    | Record<string, string | number>
-    | string
-    | URLSearchParams;
-  data?: BodyType<unknown>;
-  signal?: AbortSignal;
-  headers?: HeadersInit;
-  responseType?: string;
-};
 
 let refreshPromise: Promise<string | null> | null = null;
 
@@ -103,5 +90,3 @@ export const privateApiInstance = async <T>({
     signal,
   });
 };
-
-export type BodyType<BodyData> = BodyData;

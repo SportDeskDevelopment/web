@@ -35,7 +35,6 @@ import type {
 } from "./types";
 
 import { privateApiInstance } from "../private-instance";
-import type { BodyType } from "../private-instance";
 export const getCurrentUser = (signal?: AbortSignal) => {
   return privateApiInstance<UserResponse>({
     url: `/api/users/me`,
@@ -299,7 +298,7 @@ export function useGetUserOnboarding<
 }
 
 export const updateUserLanguage = (
-  updateLanguageRequest: BodyType<UpdateLanguageRequest>,
+  updateLanguageRequest: UpdateLanguageRequest,
 ) => {
   return privateApiInstance<UpdateUserLanguage200>({
     url: `/api/users/me/lang`,
@@ -316,13 +315,13 @@ export const getUpdateUserLanguageMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof updateUserLanguage>>,
     TError,
-    { data: BodyType<UpdateLanguageRequest> },
+    { data: UpdateLanguageRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof updateUserLanguage>>,
   TError,
-  { data: BodyType<UpdateLanguageRequest> },
+  { data: UpdateLanguageRequest },
   TContext
 > => {
   const mutationKey = ["updateUserLanguage"];
@@ -336,7 +335,7 @@ export const getUpdateUserLanguageMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof updateUserLanguage>>,
-    { data: BodyType<UpdateLanguageRequest> }
+    { data: UpdateLanguageRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -349,7 +348,7 @@ export const getUpdateUserLanguageMutationOptions = <
 export type UpdateUserLanguageMutationResult = NonNullable<
   Awaited<ReturnType<typeof updateUserLanguage>>
 >;
-export type UpdateUserLanguageMutationBody = BodyType<UpdateLanguageRequest>;
+export type UpdateUserLanguageMutationBody = UpdateLanguageRequest;
 export type UpdateUserLanguageMutationError =
   | InvalidInputResponse
   | InvalidTokenResponse;
@@ -362,7 +361,7 @@ export const useUpdateUserLanguage = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof updateUserLanguage>>,
       TError,
-      { data: BodyType<UpdateLanguageRequest> },
+      { data: UpdateLanguageRequest },
       TContext
     >;
   },
@@ -370,7 +369,7 @@ export const useUpdateUserLanguage = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof updateUserLanguage>>,
   TError,
-  { data: BodyType<UpdateLanguageRequest> },
+  { data: UpdateLanguageRequest },
   TContext
 > => {
   const mutationOptions = getUpdateUserLanguageMutationOptions(options);
@@ -378,9 +377,7 @@ export const useUpdateUserLanguage = <
   return useMutation(mutationOptions, queryClient);
 };
 
-export const updateUserRole = (
-  updateRoleRequest: BodyType<UpdateRoleRequest>,
-) => {
+export const updateUserRole = (updateRoleRequest: UpdateRoleRequest) => {
   return privateApiInstance<UpdateUserRole200>({
     url: `/api/users/me/role`,
     method: "PATCH",
@@ -396,13 +393,13 @@ export const getUpdateUserRoleMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof updateUserRole>>,
     TError,
-    { data: BodyType<UpdateRoleRequest> },
+    { data: UpdateRoleRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof updateUserRole>>,
   TError,
-  { data: BodyType<UpdateRoleRequest> },
+  { data: UpdateRoleRequest },
   TContext
 > => {
   const mutationKey = ["updateUserRole"];
@@ -416,7 +413,7 @@ export const getUpdateUserRoleMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof updateUserRole>>,
-    { data: BodyType<UpdateRoleRequest> }
+    { data: UpdateRoleRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -429,7 +426,7 @@ export const getUpdateUserRoleMutationOptions = <
 export type UpdateUserRoleMutationResult = NonNullable<
   Awaited<ReturnType<typeof updateUserRole>>
 >;
-export type UpdateUserRoleMutationBody = BodyType<UpdateRoleRequest>;
+export type UpdateUserRoleMutationBody = UpdateRoleRequest;
 export type UpdateUserRoleMutationError =
   | InvalidInputResponse
   | InvalidTokenResponse
@@ -443,7 +440,7 @@ export const useUpdateUserRole = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof updateUserRole>>,
       TError,
-      { data: BodyType<UpdateRoleRequest> },
+      { data: UpdateRoleRequest },
       TContext
     >;
   },
@@ -451,7 +448,7 @@ export const useUpdateUserRole = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof updateUserRole>>,
   TError,
-  { data: BodyType<UpdateRoleRequest> },
+  { data: UpdateRoleRequest },
   TContext
 > => {
   const mutationOptions = getUpdateUserRoleMutationOptions(options);
@@ -460,7 +457,7 @@ export const useUpdateUserRole = <
 };
 
 export const initializeUserRole = (
-  initializeRoleRequest: BodyType<InitializeRoleRequest>,
+  initializeRoleRequest: InitializeRoleRequest,
   signal?: AbortSignal,
 ) => {
   return privateApiInstance<InitializeRoleResponse>({
@@ -479,13 +476,13 @@ export const getInitializeUserRoleMutationOptions = <
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof initializeUserRole>>,
     TError,
-    { data: BodyType<InitializeRoleRequest> },
+    { data: InitializeRoleRequest },
     TContext
   >;
 }): UseMutationOptions<
   Awaited<ReturnType<typeof initializeUserRole>>,
   TError,
-  { data: BodyType<InitializeRoleRequest> },
+  { data: InitializeRoleRequest },
   TContext
 > => {
   const mutationKey = ["initializeUserRole"];
@@ -499,7 +496,7 @@ export const getInitializeUserRoleMutationOptions = <
 
   const mutationFn: MutationFunction<
     Awaited<ReturnType<typeof initializeUserRole>>,
-    { data: BodyType<InitializeRoleRequest> }
+    { data: InitializeRoleRequest }
   > = (props) => {
     const { data } = props ?? {};
 
@@ -512,7 +509,7 @@ export const getInitializeUserRoleMutationOptions = <
 export type InitializeUserRoleMutationResult = NonNullable<
   Awaited<ReturnType<typeof initializeUserRole>>
 >;
-export type InitializeUserRoleMutationBody = BodyType<InitializeRoleRequest>;
+export type InitializeUserRoleMutationBody = InitializeRoleRequest;
 export type InitializeUserRoleMutationError =
   | InvalidInputResponse
   | InvalidTokenResponse;
@@ -525,7 +522,7 @@ export const useInitializeUserRole = <
     mutation?: UseMutationOptions<
       Awaited<ReturnType<typeof initializeUserRole>>,
       TError,
-      { data: BodyType<InitializeRoleRequest> },
+      { data: InitializeRoleRequest },
       TContext
     >;
   },
@@ -533,7 +530,7 @@ export const useInitializeUserRole = <
 ): UseMutationResult<
   Awaited<ReturnType<typeof initializeUserRole>>,
   TError,
-  { data: BodyType<InitializeRoleRequest> },
+  { data: InitializeRoleRequest },
   TContext
 > => {
   const mutationOptions = getInitializeUserRoleMutationOptions(options);
