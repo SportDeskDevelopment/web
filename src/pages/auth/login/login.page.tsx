@@ -24,7 +24,7 @@ import { Input } from "@/shared/ui/input";
 import { Separator } from "@/shared/ui/separator";
 
 const LoginPage = () => {
-  const { form, onSubmit } = useLogin();
+  const { form, onSubmit, isLoading } = useLogin();
 
   return (
     <Layout withoutFooter>
@@ -81,7 +81,7 @@ const LoginPage = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" isLoading={isLoading}>
                   Login
                 </Button>
               </form>

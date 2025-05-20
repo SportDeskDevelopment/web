@@ -30,7 +30,7 @@ export const useLogin = () => {
     });
   };
 
-  const { mutate: loginUser } = authApi.useLoginUser({
+  const { mutate: loginUser, isPending } = authApi.useLoginUser({
     mutation: {
       onSuccess: (data) => {
         localStorage.setItem("token", data.accessToken);
@@ -57,5 +57,5 @@ export const useLogin = () => {
     },
   });
 
-  return { form, onSubmit, loginUser };
+  return { form, onSubmit, loginUser, isLoading: isPending };
 };
