@@ -1,5 +1,11 @@
+import { Layout } from "@/shared/components/navigation/layout";
+
 export function TrainerOnboardingPage() {
-  return <div>TrainerOnboardingPage</div>;
+  return (
+    <Layout withoutFooter>
+      <div>TrainerOnboardingPage</div>
+    </Layout>
+  );
 }
 
 export const Component = TrainerOnboardingPage;
