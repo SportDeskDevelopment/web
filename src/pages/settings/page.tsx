@@ -1,6 +1,6 @@
 import { TrainerOnboardingModal } from "@/features/trainer-onboarding";
-import { FooterNav } from "@/shared/components/navigation/footer-navigation";
 import { PageLayout } from "@/shared/ui/page-layout";
+import { FooterNavigation } from "@/widgets/footer-navigation";
 import { Header } from "@/widgets/header";
 
 function SettingsPage() {
@@ -8,7 +8,7 @@ function SettingsPage() {
     <PageLayout
       header={<Header />}
       content={<TrainerOnboardingModal />}
-      footer={<FooterNav />}
+      footer={<FooterNavigation />}
     />
   );
 }

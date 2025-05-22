@@ -1,6 +1,5 @@
 import { useRegister } from "./use-register";
 
-import { FooterNav } from "@/shared/components/navigation/footer-navigation";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/button";
 import {
@@ -204,7 +203,6 @@ const RegisterPage = () => {
           )}
         </div>
       }
-      footer={<FooterNav />}
     />
   );
 };

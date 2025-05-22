@@ -1,8 +1,8 @@
 import { TrainerOnboardingModal } from "@/features/trainer-onboarding/modal";
 import { CustomCarousel } from "@/shared/components/navigation/custom-carousel";
-import { FooterNav } from "@/shared/components/navigation/footer-navigation";
 import { TrainingCard } from "@/shared/components/navigation/training-card";
 import { PageLayout } from "@/shared/ui/page-layout";
+import { FooterNavigation } from "@/widgets/footer-navigation";
 import { Header } from "@/widgets/header";
 
 const data = [
@@ -68,7 +68,7 @@ function HomePage() {
           </div>
         </>
       }
-      footer={<FooterNav />}
+      footer={<FooterNavigation />}
     />
   );
 }

@@ -2,7 +2,6 @@ import { Link } from "react-router";
 
 import { useLogin } from "./use-login-user";
 
-import { FooterNav } from "@/shared/components/navigation/footer-navigation";
 import { Button } from "@/shared/ui/button";
 import {
   Card,
@@ -106,7 +105,6 @@ const LoginPage = () => {
           </Card>
         </div>
       }
-      footer={<FooterNav />}
     />
   );
 };

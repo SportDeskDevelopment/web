@@ -1,8 +1,8 @@
 import { Home, QrCode, Settings, User } from "lucide-react";
 
 import { ROUTES } from "@/kernel/routes";
-import { FooterNavigationLayout } from "@/shared/ui/footer-navigation";
 import { FooterNavItem } from "@/shared/ui/footer-navigation-item";
+import { FooterNavigationLayout } from "@/shared/ui/footer-navigation-layout";
 import { FooterScanQr } from "@/shared/ui/footer-scan-qr";
 
 export function FooterNavigation() {
