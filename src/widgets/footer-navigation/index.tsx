@@ -4,6 +4,7 @@ import { ROUTES } from "@/kernel/routes";
 import { FooterNavItem } from "@/shared/ui/footer-navigation-item";
 import { FooterNavigationLayout } from "@/shared/ui/footer-navigation-layout";
 import { FooterScanQr } from "@/shared/ui/footer-scan-qr";
+import { getIsActivePathname } from "@/widgets/footer-navigation/domain";
 
 export function FooterNavigation() {
   return (
@@ -12,11 +13,13 @@ export function FooterNavigation() {
         href={ROUTES.home}
         icon={<Home className="h-5 w-5" />}
         label="Home"
+        getIsActive={getIsActivePathname}
       />
       <FooterNavItem
         href={ROUTES.home}
         icon={<User className="h-5 w-5" />}
         label="Profile"
+        getIsActive={getIsActivePathname}
       />
       <FooterScanQr
         icon={<QrCode className="h-5 w-5" />}
@@ -26,11 +29,13 @@ export function FooterNavigation() {
         href={ROUTES.settings}
         icon={<Settings className="h-5 w-5" />}
         label="Settings"
+        getIsActive={getIsActivePathname}
       />
       <FooterNavItem
         href={ROUTES.settings}
         icon={<Settings className="h-5 w-5" />}
         label="Settings"
+        getIsActive={getIsActivePathname}
       />
     </FooterNavigationLayout>
   );

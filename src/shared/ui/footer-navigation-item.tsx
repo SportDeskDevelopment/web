@@ -7,12 +7,12 @@ export const FooterNavItem = ({
   href,
   icon,
   label,
-  isActive,
+  getIsActive,
 }: {
   href: string;
   icon: React.ReactNode;
   label: string;
-  isActive?: boolean;
+  getIsActive?: (pathname: string) => boolean;
 }) => {
   const [isPressed, setIsPressed] = useState(false);
 
@@ -23,7 +23,7 @@ export const FooterNavItem = ({
       onTouchEnd={() => setIsPressed(false)}
       className={cn(
         "text-muted-foreground hover:text-secondary flex flex-col items-center transition-all",
-        isActive && "text-primary/80",
+        getIsActive?.(href) && "text-primary/80",
         isPressed && "opacity-50",
       )}
     >
