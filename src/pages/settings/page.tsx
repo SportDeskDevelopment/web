@@ -1,11 +1,15 @@
 import { TrainerOnboardingModal } from "@/features/trainer-onboarding";
-import { Layout } from "@/shared/components/navigation/layout";
+import { FooterNav } from "@/shared/components/navigation/footer-navigation";
+import { PageLayout } from "@/shared/ui/page-layout";
+import { Header } from "@/widgets/header";
 
 function SettingsPage() {
   return (
-    <Layout>
-      <TrainerOnboardingModal />
-    </Layout>
+    <PageLayout
+      header={<Header />}
+      content={<TrainerOnboardingModal />}
+      footer={<FooterNav />}
+    />
   );
 }
 

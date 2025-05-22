@@ -8,7 +8,7 @@ import { ROUTES } from "@/kernel/routes";
 import { RoleType } from "@/kernel/user";
 import { useInitRole } from "@/pages/initiate-role/model/use-init-role";
 import { useSubmitInitRole } from "@/pages/initiate-role/view-model/use-submit";
-import { Layout } from "@/shared/components/navigation/layout";
+import { Layout } from "@/widgets/footer-navigation";
 import { cn } from "@/shared/lib/utils";
 import { Button } from "@/shared/ui/button";
 import { Card, CardHeader } from "@/shared/ui/card";

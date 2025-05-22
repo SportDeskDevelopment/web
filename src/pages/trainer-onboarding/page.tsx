@@ -1,10 +1,14 @@
-import { Layout } from "@/shared/components/navigation/layout";
+import { FooterNav } from "@/shared/components/navigation/footer-navigation";
+import { PageLayout } from "@/shared/ui/page-layout";
+import { Header } from "@/widgets/header";
 
 export function TrainerOnboardingPage() {
   return (
-    <Layout withoutFooter>
-      <div>TrainerOnboardingPage</div>
-    </Layout>
+    <PageLayout
+      header={<Header />}
+      content={<div>TrainerOnboardingPage</div>}
+      footer={<FooterNav />}
+    />
   );
 }
 

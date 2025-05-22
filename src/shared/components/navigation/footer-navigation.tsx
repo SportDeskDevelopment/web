@@ -1,7 +1,9 @@
 import { Home, QrCode, Settings, User } from "lucide-react";
-import { NavLink } from "react-router";
+import { useState } from "react";
+import { NavLink, useMatch } from "react-router";
 
 import { ROUTES } from "@/kernel/routes";
+import { cn } from "@/lib/utils";
 
 export const FooterNav = () => {
   return (
@@ -42,10 +44,19 @@ const FooterNavItem = ({
   icon: React.ReactNode;
   label: string;
 }) => {
+  const isActive = useMatch(href);
+  const [isPressed, setIsPressed] = useState(false);
+
   return (
     <NavLink
       to={href}
-      className="text-muted-foreground hover:text-secondary flex flex-col items-center transition-colors"
+      onTouchStart={() => setIsPressed(true)}
+      onTouchEnd={() => setIsPressed(false)}
+      className={cn(
+        "text-muted-foreground hover:text-secondary flex flex-col items-center transition-all",
+        isActive && "text-primary/80",
+        isPressed && "opacity-50",
+      )}
     >
       {icon}
       <span className="text-xs">{label}</span>
