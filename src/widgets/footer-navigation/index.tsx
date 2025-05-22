@@ -16,7 +16,7 @@ export function FooterNavigation() {
         getIsActive={getIsActivePathname}
       />
       <FooterNavItem
-        href={ROUTES.home}
+        href={ROUTES.trainerOnboarding}
         icon={<User className="h-5 w-5" />}
         label="Profile"
         getIsActive={getIsActivePathname}
@@ -26,9 +26,9 @@ export function FooterNavigation() {
         className="absolute -top-6 left-1/2 flex -translate-x-1/2 transform"
       />
       <FooterNavItem
-        href={ROUTES.settings}
+        href={ROUTES.login}
         icon={<Settings className="h-5 w-5" />}
-        label="Settings"
+        label="Login"
         getIsActive={getIsActivePathname}
       />
       <FooterNavItem
