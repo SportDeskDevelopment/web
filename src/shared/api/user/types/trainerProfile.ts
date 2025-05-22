@@ -5,10 +5,13 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface TrainerProfile {
+/**
+ * @nullable
+ */
+export type TrainerProfile = {
   gyms?: string[];
   groups?: string[];
   trainings?: string[];
   isOnboardingCompleted?: boolean;
   subscriptions?: string[];
-}
+} | null;

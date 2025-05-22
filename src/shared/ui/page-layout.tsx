@@ -8,6 +8,7 @@ interface PageLayoutProps {
   header?: ReactNode;
   footer?: ReactNode;
   content?: ReactNode;
+  children?: ReactNode;
 }
 
 export const PageLayout = ({
@@ -15,6 +16,7 @@ export const PageLayout = ({
   header,
   footer,
   content,
+  children,
 }: PageLayoutProps) => {
   return (
     <div
@@ -24,7 +26,9 @@ export const PageLayout = ({
       )}
     >
       {header}
-      <main className="container mx-auto flex-1 p-4">{content}</main>
+      <main className="container mx-auto flex-1 p-4">
+        {content ?? children}
+      </main>
       {footer}
       <Toaster position="bottom-right" />
     </div>
