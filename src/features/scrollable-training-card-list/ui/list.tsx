@@ -3,7 +3,7 @@ import type { Training } from "../model/types";
 import { TrainingCard } from "@/entities/training";
 import { cn } from "@/lib/utils";
 
-export const TrainingCardList = ({
+export const ScrollableTrainingCardList = ({
   className,
   trainings,
 }: {

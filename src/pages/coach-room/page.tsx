@@ -1,20 +1,32 @@
 import { Group, School, User } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
-import { TrainingCardList } from "@/features/training-card-list";
+import { ScrollableTrainingCardList } from "@/features/scrollable-training-card-list";
 import { Card } from "@/shared/ui/card";
 import { PageLayout } from "@/shared/ui/page-layout";
 import { Separator } from "@/shared/ui/separator";
 import { FooterNavigation } from "@/widgets/footer-navigation";
 import { Header } from "@/widgets/header";
 
+const groupedTrainings = [
+  {
+    id: "1",
+    title: "Training 1",
+    date: "2021-01-01",
+  },
+];
+
 function CoachRoomPage() {
+  const { t } = useTranslation("coach-room");
+
   return (
     <PageLayout
       header={<Header />}
       content={
         <>
-          <TrainingCardList
+          <h4 className="mb-1 text-2xl font-medium">{t("title")}</h4>
+          <ScrollableTrainingCardList
             className="max-h-[42vh] overflow-y-auto"
             trainings={[
               {
