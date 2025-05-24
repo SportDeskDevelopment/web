@@ -1,7 +1,9 @@
 import { TrainerOnboardingModal } from "@/features/trainer-onboarding/modal";
 import { CustomCarousel } from "@/shared/components/navigation/custom-carousel";
-import { Layout } from "@/shared/components/navigation/layout";
 import { TrainingCard } from "@/shared/components/navigation/training-card";
+import { PageLayout } from "@/shared/ui/page-layout";
+import { FooterNavigation } from "@/widgets/footer-navigation";
+import { Header } from "@/widgets/header";
 
 const data = [
   {
@@ -43,24 +45,30 @@ const data = [
 
 export function HomePage() {
   return (
-    <Layout>
-      <div className="flex flex-row justify-between">
-        <h1 className="text-2xl font-bold">Trainings</h1>
-        <CustomCarousel />
-      </div>
-      <div className="mb-4 flex flex-col justify-center gap-4 p-4">
-        {data.map((item) => (
-          <TrainingCard
-            key={item.title}
-            title={item.title}
-            date={item.date}
-            gym={item.gym}
-            group={item.group}
-            status={item.status as "pending" | "completed" | "cancelled"}
-          />
-        ))}
-        <TrainerOnboardingModal />
-      </div>
-    </Layout>
+    <PageLayout
+      header={<Header />}
+      content={
+        <>
+          <div className="flex flex-row justify-between">
+            <h1 className="text-2xl font-bold">Trainings</h1>
+            <CustomCarousel />
+          </div>
+          <div className="mb-4 flex flex-col justify-center gap-4 p-4">
+            {data.map((item) => (
+              <TrainingCard
+                key={item.title}
+                title={item.title}
+                date={item.date}
+                gym={item.gym}
+                group={item.group}
+                status={item.status as "pending" | "completed" | "cancelled"}
+              />
+            ))}
+            <TrainerOnboardingModal />
+          </div>
+        </>
+      }
+      footer={<FooterNavigation />}
+    />
   );
 }

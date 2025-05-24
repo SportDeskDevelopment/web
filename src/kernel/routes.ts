@@ -7,6 +7,7 @@ export const ROUTES = {
   settings: "/settings",
   initiateRole: "/initiate-role",
   trainerOnboarding: "/trainer-onboarding",
+  coachRoom: "/coach-room",
 } as const;
 
 export type PathParams = {

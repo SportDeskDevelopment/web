@@ -38,6 +38,7 @@ export const useSubmitInitRole = ({
             [RoleType.PARENT]: ROUTES.home,
             [RoleType.ADMIN]: ROUTES.home,
           }[variables.data.role],
+          { viewTransition: true },
         );
       },
       onError(error) {
