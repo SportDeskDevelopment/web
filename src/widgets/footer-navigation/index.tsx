@@ -1,4 +1,4 @@
-import { Home, QrCode, Settings, User } from "lucide-react";
+import { Home, QrCode, Settings } from "lucide-react";
 
 import { ROUTES } from "@/kernel/routes";
 import { FooterNavItem } from "@/shared/ui/footer-navigation-item";
@@ -15,22 +15,22 @@ export function FooterNavigation() {
         label="Home"
         getIsActive={getIsActivePathname}
       />
-      <FooterNavItem
+      {/* <FooterNavItem
         href={ROUTES.trainerOnboarding}
         icon={<User className="h-5 w-5" />}
         label="Profile"
         getIsActive={getIsActivePathname}
-      />
+      /> */}
       <FooterScanQr
         icon={<QrCode className="h-5 w-5" />}
         className="absolute -top-6 left-1/2 flex -translate-x-1/2 transform"
       />
-      <FooterNavItem
+      {/* <FooterNavItem
         href={ROUTES.login}
         icon={<Settings className="h-5 w-5" />}
         label="Login"
         getIsActive={getIsActivePathname}
-      />
+      /> */}
       <FooterNavItem
         href={ROUTES.settings}
         icon={<Settings className="h-5 w-5" />}

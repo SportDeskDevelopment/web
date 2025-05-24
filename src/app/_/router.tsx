@@ -29,6 +29,13 @@ export const router = createBrowserRouter([
         path: ROUTES.trainerOnboarding,
         lazy: () => import("@/pages/trainer-onboarding/page"),
       },
+      {
+        path: ROUTES.coachRoom,
+        lazy: {
+          Component: async () =>
+            (await import("@/pages/coach-room/page")).Component,
+        },
+      },
     ],
   },
   {
