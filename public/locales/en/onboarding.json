@@ -7,5 +7,25 @@
     "trainee": "I am here to train myself (Trainee)",
     "parent": "I am here to support my children (Parent)"
   },
-  "continue": "Continue"
+  "continue": "Continue",
+  "gym-creation": {
+    "title": "Let's create your gym 💪",
+    "subtitle": "This is where your team will train and grow together.",
+    "form": {
+      "name": "Gym name",
+      "location": "Location",
+      "description": "Description (optional)",
+      "workHours": "Work hours",
+      "namePlaceholder": "Enter gym name",
+      "locationPlaceholder": "Enter address",
+      "descriptionPlaceholder": "Brief description",
+      "workHoursPlaceholder": "Work hours"
+    },
+    "add": "Add gym",
+    "apply": "Apply",
+    "editTitle": "Edit gym",
+    "save": "Save",
+    "delete": "Delete",
+    "hintAfterAdd": "You can create several gyms at once or proceed to the next step."
+  }
 }

@@ -16,7 +16,7 @@ import { PageLayout } from "@/shared/ui/page-layout";
 import { RadioGroup, RadioGroupItem } from "@/shared/ui/radio-group";
 import { Header } from "@/widgets/header";
 
-function InitiateRolePage() {
+export function InitiateRolePage() {
   const { t } = useTranslation("onboarding");
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -107,4 +107,4 @@ function InitiateRolePage() {
   );
 }
 
-export const Component = InitiateRolePage;
+// export const Component = InitiateRolePage;

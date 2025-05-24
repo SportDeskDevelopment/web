@@ -207,4 +207,3 @@ const RegisterPage = () => {
   );
 };
 
-export const Component = RegisterPage;

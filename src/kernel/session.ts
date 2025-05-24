@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from "react";
-import { parseJwt } from "@/shared/lib/jwt";
+
 import { BroadcastEvents } from "@/shared/lib/boardcast-events";
+import { parseJwt } from "@/shared/lib/jwt";
 
 type Session = {
   userId: number;
@@ -45,7 +46,7 @@ class SessionStore {
     const token = useSyncExternalStore(
       this.updateSessionSteam.listen,
       this.getSessionToken,
-      () => null
+      () => null,
     );
 
     return tokenToSession(token);

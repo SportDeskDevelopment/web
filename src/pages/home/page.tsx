@@ -43,7 +43,7 @@ const data = [
   },
 ];
 
-function HomePage() {
+export function HomePage() {
   return (
     <PageLayout
       header={<Header />}
@@ -72,5 +72,3 @@ function HomePage() {
     />
   );
 }
-
-export const Component = HomePage;

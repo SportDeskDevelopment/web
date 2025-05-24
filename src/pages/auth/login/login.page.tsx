@@ -24,7 +24,7 @@ import { PageLayout } from "@/shared/ui/page-layout";
 import { Separator } from "@/shared/ui/separator";
 import { Header } from "@/widgets/header";
 
-const LoginPage = () => {
+export function LoginPage() {
   const { form, onSubmit, isLoading } = useLogin();
 
   return (
@@ -107,6 +107,5 @@ const LoginPage = () => {
       }
     />
   );
-};
+}
 
-export const Component = LoginPage;

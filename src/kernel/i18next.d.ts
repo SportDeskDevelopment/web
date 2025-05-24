@@ -3,6 +3,7 @@ import "i18next";
 
 import coachRoom from "../../public/locales/en/coach-room.json";
 import common from "../../public/locales/en/common.json";
+import gym from "../../public/locales/en/gym.json";
 import onboarding from "../../public/locales/en/onboarding.json";
 
 declare module "i18next" {
@@ -12,6 +13,7 @@ declare module "i18next" {
       common: typeof common;
       onboarding: typeof onboarding;
       "coach-room": typeof coachRoom;
+      gym: typeof gym;
     };
   }
 }
