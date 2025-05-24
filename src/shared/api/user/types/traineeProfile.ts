@@ -5,6 +5,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface TraineeProfile {
+/**
+ * @nullable
+ */
+export type TraineeProfile = {
   isOnboardingCompleted?: boolean;
-}
+} | null;

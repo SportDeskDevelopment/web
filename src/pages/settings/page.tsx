@@ -1,12 +1,10 @@
-import { TrainerOnboardingModal } from "@/features/trainer-onboarding";
+import { TrainerOnboardingModal } from "@/features/trainer-onboarding/modal";
 import { Layout } from "@/shared/components/navigation/layout";
 
-function SettingsPage() {
+export function SettingsPage() {
   return (
     <Layout>
       <TrainerOnboardingModal />
     </Layout>
   );
 }
-
-export const Component = SettingsPage;

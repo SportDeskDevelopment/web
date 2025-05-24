@@ -15,7 +15,7 @@ import { Card, CardHeader } from "@/shared/ui/card";
 import { Label } from "@/shared/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/shared/ui/radio-group";
 
-function InitiateRolePage() {
+export function InitiateRolePage() {
   const { t } = useTranslation("onboarding");
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -106,4 +106,4 @@ function InitiateRolePage() {
   );
 }
 
-export const Component = InitiateRolePage;
+// export const Component = InitiateRolePage;

@@ -23,15 +23,15 @@ import { FormField } from "@/shared/ui/form";
 import { Input } from "@/shared/ui/input";
 import { Separator } from "@/shared/ui/separator";
 
-const LoginPage = () => {
+export function LoginPage() {
   const { form, onSubmit, isLoading } = useLogin();
 
   return (
     <Layout withoutFooter>
-      <div className="flex flex-col items-center mt-10">
+      <div className="mt-10 flex flex-col items-center">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">
+            <CardTitle className="text-center text-2xl font-bold">
               Login
             </CardTitle>
             <CardDescription className="text-center">
@@ -39,7 +39,7 @@ const LoginPage = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-row gap-4 justify-center h-10">
+            <div className="flex h-10 flex-row justify-center gap-4">
               <Button variant="outline">Login with Google</Button>
               <Button variant="outline">Login with GitHub</Button>
             </div>
@@ -88,9 +88,9 @@ const LoginPage = () => {
             </Form>
           </CardContent>
           <CardFooter>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Don't have an account?
-              <Link className="text-primary underline ml-2" to="/signup">
+              <Link className="text-primary ml-2 underline" to="/signup">
                 Sign up
               </Link>
             </p>
@@ -99,6 +99,5 @@ const LoginPage = () => {
       </div>
     </Layout>
   );
-};
+}
 
-export const Component = LoginPage;

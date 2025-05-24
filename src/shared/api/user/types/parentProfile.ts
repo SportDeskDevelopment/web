@@ -5,6 +5,9 @@
  * OpenAPI spec version: 1.0.0
  */
 
-export interface ParentProfile {
+/**
+ * @nullable
+ */
+export type ParentProfile = {
   isOnboardingCompleted?: boolean;
-}
+} | null;

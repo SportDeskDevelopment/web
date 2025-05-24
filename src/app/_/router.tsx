@@ -4,7 +4,6 @@ import { authGuard } from "./private-loader";
 
 import { ROUTES } from "@/kernel/routes";
 import { appSessionStore } from "@/kernel/session";
-import { prefetchOnboarding } from "@/pages/initiate-role";
 
 export const router = createBrowserRouter([
   {
@@ -14,30 +13,50 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.home,
-        lazy: () => import("@/pages/home/page"),
+        lazy: {
+          Component: async () => (await import("@/pages/home/page")).HomePage,
+        },
       },
       {
         path: ROUTES.settings,
-        lazy: () => import("@/pages/settings/page"),
+        lazy: {
+          Component: async () =>
+            (await import("@/pages/settings/page")).SettingsPage,
+        },
       },
       {
         path: ROUTES.initiateRole,
-        loader: prefetchOnboarding,
-        lazy: () => import("@/pages/initiate-role/page"),
+        lazy: {
+          loader: async () =>
+            (await import("@/pages/initiate-role/pre-loader"))
+              .prefetchOnboarding,
+          Component: async () =>
+            (await import("@/pages/initiate-role/page")).InitiateRolePage,
+        },
       },
       {
         path: ROUTES.trainerOnboarding,
-        lazy: () => import("@/pages/trainer-onboarding/page"),
+        lazy: {
+          Component: async () =>
+            (await import("@/pages/trainer-onboarding/page"))
+              .TrainerOnboardingPage,
+        },
       },
     ],
   },
   {
     path: ROUTES.login,
-    lazy: () => import("@/pages/auth/login/login.page"),
+    lazy: {
+      Component: async () =>
+        (await import("@/pages/auth/login/login.page")).LoginPage,
+    },
   },
   {
     path: ROUTES.signup,
-    lazy: () => import("@/pages/auth/register/register.page"),
+    lazy: {
+      Component: async () =>
+        (await import("@/pages/auth/register/register.page")).RegisterPage,
+    },
   },
 ]);
 

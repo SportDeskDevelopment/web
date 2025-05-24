@@ -53,4 +53,12 @@ export default defineConfig({
       ...common,
     },
   },
+  trainer: {
+    input: "../contracts/trainer.yaml",
+    output: {
+      target: "./src/shared/api/trainer/api.ts",
+      schemas: "./src/shared/api/trainer/types",
+      ...common,
+    },
+  },
 });

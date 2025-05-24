@@ -27,9 +27,7 @@ import {
   InputOTPSlot,
 } from "@/shared/ui/input-otp";
 
-
-
-const RegisterPage = () => {
+export function RegisterPage() {
   const { registerForm, otpForm, handleRegister, handleConfirmEmail, step } =
     useRegister();
 
@@ -204,4 +202,3 @@ const RegisterPage = () => {
   );
 };
 
-export const Component = RegisterPage;

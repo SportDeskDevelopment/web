@@ -18,9 +18,12 @@ export interface UserResponse {
   preferredLang: UserResponsePreferredLang;
   activeRole: UserResponseActiveRole;
   roles: UserResponseRolesItem[];
-  trainerStepsLeft: string[];
-  traineeStepsLeft: string[];
-  parentStepsLeft: string[];
+  /** @nullable */
+  trainerStepsLeft: string[] | null;
+  /** @nullable */
+  traineeStepsLeft: string[] | null;
+  /** @nullable */
+  parentStepsLeft: string[] | null;
   trainerProfile: TrainerProfile;
   traineeProfile: TraineeProfile;
   parentProfile: ParentProfile;

@@ -41,7 +41,7 @@ const data = [
   },
 ];
 
-function HomePage() {
+export function HomePage() {
   return (
     <Layout>
       <div className="flex flex-row justify-between">
@@ -64,5 +64,3 @@ function HomePage() {
     </Layout>
   );
 }
-
-export const Component = HomePage;

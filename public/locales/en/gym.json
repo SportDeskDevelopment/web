@@ -1,0 +1,12 @@
+{
+  "title": "Let's create your gym 💪",
+  "subtitle": "This is where your team will train and grow together.",
+  "form": {
+    "name": "Gym name",
+    "location": "Location",
+    "description": "Description (optional)"
+  },
+  "create": "Create Gym",
+  "success": "Your gym has been created successfully!",
+  "error": "There was an error creating the gym. Please try again."
+}
